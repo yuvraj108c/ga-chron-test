@@ -1,4 +1,6 @@
 name: Master
+env:
+  API: ${{ secrets.API }}
 on:
   push:
     branches:
