@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/yuvraj108c/ga-chron-test/issues"
   },
-  "homepage": "https://github.com/yuvraj108c/ga-chron-test#readme"
+  "homepage": "https://github.com/yuvraj108c/ga-chron-test#readme",
+  "dependencies": {
+    "sharp": "^0.30.3"
+  }
 }
