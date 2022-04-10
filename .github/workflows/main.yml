@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - master
-  schedule:
-    - cron: "* * * * *"
+  # schedule:
+  #   - cron: "* * * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,8 +18,3 @@ jobs:
 
       - name: Run script
         run: npm start
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: images
-          path: outputs/
