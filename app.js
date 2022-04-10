@@ -1,6 +1,11 @@
 const sharp = require("sharp");
+const axios = require("axios");
+const fs = require("fs");
+require("dotenv").config();
 
-async function addTextOnImage() {
+const IMAGE_PATH = "outputs/image.png";
+
+async function createImageWithText() {
   try {
     const width = 750;
     const height = 483;
@@ -15,10 +20,23 @@ async function addTextOnImage() {
     </svg>
     `;
     const svgBuffer = Buffer.from(svgImage);
-    const image = await sharp(svgBuffer).toFile("outputs/svg-image.png");
+    await sharp(svgBuffer).toFile(IMAGE_PATH);
   } catch (error) {
     console.log(error);
   }
 }
 
-addTextOnImage();
+async function uploadImage() {
+  const imageAsBase64 = fs.readFileSync(IMAGE_PATH, "base64");
+
+  const imgurRequest = await axios.post(process.env.API, {
+    image: imageAsBase64,
+  });
+
+  console.log(imgurRequest.data);
+}
+
+(async () => {
+  await createImageWithText();
+  await uploadImage();
+})();

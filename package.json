@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/yuvraj108c/ga-chron-test#readme",
   "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
     "sharp": "^0.30.3"
   }
 }
