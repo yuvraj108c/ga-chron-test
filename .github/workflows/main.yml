@@ -1,29 +1,15 @@
-name: Master
-env:
-  API: ${{ secrets.API }}
+name: other
 on:
   push:
     branches:
-      - master
-  # schedule:
-  #   - cron: "* * * * *"
+      - other
+  schedule:
+    - cron: "*/1 * * * *" # every 1 minute
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run script
-        run: npm start
-
-      - name: Commit and push if it changed
-        run: |-
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A
-          timestamp=$(date -u)
-          git commit -m "Latest data: ${timestamp}" || exit 0
-          git push
+      - name: Echo branch
+        run: echo other
