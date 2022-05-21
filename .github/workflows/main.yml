@@ -12,5 +12,5 @@ jobs:
       - uses: actions/checkout@v2
         with: { ref: other }
 
-      - name: Echo branch
-        run: echo ${{ github.ref_name }}
+      - name: Run script
+        run: npm start
