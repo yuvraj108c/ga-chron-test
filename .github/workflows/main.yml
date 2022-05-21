@@ -1,10 +1,10 @@
 name: other
 on:
-  push:
-    branches:
-      - other
+  # push:
+  #   branches:
+  #     - other
   schedule:
-    - cron: "*/5 * * * *" # every 1 minute
+    - cron: "*/5 * * * *" # every 5 minutes
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,4 +13,4 @@ jobs:
         with: { ref: other }
 
       - name: Echo branch
-        run: echo other
+        run: echo ${{ github.ref_name }}
