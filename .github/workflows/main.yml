@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v3
         with:
           path: script_1.txt
 
