@@ -6,13 +6,18 @@ on:
   # schedule:
   #   - cron: "*/5 * * * *" # every 5 minutes
 jobs:
-  build:
+  script_1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Run script 1
         run: node script_1.js
+
+  script_2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
       - name: Run script 2
         run: node script_2.js
