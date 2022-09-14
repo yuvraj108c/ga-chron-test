@@ -1,16 +1,18 @@
-name: other
+name: Multiple Jobs
 on:
-  # push:
-  #   branches:
-  #     - other
-  schedule:
-    - cron: "*/5 * * * *" # every 5 minutes
+  push:
+    branches:
+      - master
+  # schedule:
+  #   - cron: "*/5 * * * *" # every 5 minutes
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with: { ref: other }
 
-      - name: Run script
-        run: npm start
+      - name: Run script 1
+        run: node script_1.js
+
+      - name: Run script 2
+        run: node script_2.js
