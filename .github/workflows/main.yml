@@ -14,6 +14,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
+          name: script_1
           path: script_1.txt
 
   script_2:
@@ -23,7 +24,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          path: script_1.txt
+          name: script_1
 
-      - name: Run script 2
-        run: node script_2.js
+      - name: List all files
+        run: ls -R
