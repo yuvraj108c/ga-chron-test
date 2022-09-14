@@ -16,10 +16,14 @@ jobs:
         with:
           path: script_1.txt
 
-  # script_2:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
+  script_2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-  #     - name: Run script 2
-  #       run: node script_2.js
+      - uses: actions/download-artifact@master
+        with:
+          path: script_1.txt
+
+      - name: Run script 2
+        run: node script_2.js
