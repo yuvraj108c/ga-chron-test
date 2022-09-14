@@ -19,6 +19,7 @@ jobs:
 
   script_2:
     runs-on: ubuntu-latest
+    needs: script_1
     steps:
       - uses: actions/checkout@v2
 
