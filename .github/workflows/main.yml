@@ -9,5 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Get IP Address
-        run: node main.js
+      - run: npm install
+      - run: node main.js
