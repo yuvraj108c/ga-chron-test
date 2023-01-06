@@ -1,13 +1,16 @@
-name: Get IP Addresss
+name: Matrix IP
+
 on:
   push:
     branches: master
 
 jobs:
-  main:
+  matrix:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        index: [0, 5, 10, 15, 20]
     steps:
       - uses: actions/checkout@v2
-
       - run: npm install
       - run: node main.js
